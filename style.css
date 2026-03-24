@@ -1,0 +1,349 @@
+/* ================= FONTS ================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&display=swap');
+
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: rgba(223, 142, 110, 0.561);
+  color: #1a1a1a;
+}
+
+/* ================= NAVBAR PRO ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+/* Quando scrollar */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 12px 20px;
+}
+
+/* LEFT */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 45px;
+  transition: 0.3s;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.nav-title {
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* LINKS */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 600;
+  position: relative;
+  padding: 5px;
+}
+
+/* Underline animado */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #ffaf02, #e44617);
+  transition: 0.3s;
+  transform: translateX(-50%);
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* RIGHT */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon {
+  width: 30px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #1a1a1a;
+  transition: 0.3s;
+}
+
+/* Animação virar X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-links li {
+    padding: 15px 0;
+  }
+}
+/* ================= HERO ================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url("imagens/pontebunita.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 0 20px;
+  gap: 20px;
+}
+
+.hero h1 {
+  font-family: "Imperial Script", cursive;
+  font-size: clamp(6rem, 10vw, 8.5rem);
+  color: #ffffff;
+}
+
+.hero p {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  max-width: 600px;
+  margin: 0 auto;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.btn {
+  background: linear-gradient(90deg, #ffaf02, #e44617);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+}
+
+/* ================= ABOUT ================= */
+.About {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+.About-Content {
+  padding: 60px 40px;
+  background-color: #ffffff;
+  border: 3px solid #e44617;
+  border-radius: 40px;
+  box-shadow: 12px 12px 0px #dd7c5f;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.About h1 {
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.About p {
+  font-size: 1.1rem;
+  color: #444;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ================= PLACES ================= */
+.places {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.place {
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.place:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.place img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.info {
+  padding: 20px;
+}
+
+.info h3 {
+  color: #e44617;
+  margin-bottom: 10px;
+}
+
+.info p {
+  line-height: 1.5;
+}
+
+.map-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #e44617;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.map-btn:hover {
+  background-color: #ffaf02;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #8e8e8e;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
+  font-weight: 600;
+}
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 768px) {
+  .places {
+    grid-template-columns: 1fr;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.info-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #e44617;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.info-btn:hover {
+  background-color: #ffaf02;
+}
